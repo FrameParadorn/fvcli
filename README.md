@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/FrameParadorn/fvcli/main/logo.png"/>
+<img src="https://raw.githubusercontent.com/FrameParadorn/fvcli/main/logo.png" width="100px"/>
 
 A gopher cli tool generate base on clean archtecture
 
