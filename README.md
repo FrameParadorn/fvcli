@@ -1,3 +1,5 @@
+A gopher cli tool generate base on clean archtecture
+
 # Description
 
 fvcli is a command line interface for generate golang project with clean
