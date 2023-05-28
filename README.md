@@ -1,6 +1,14 @@
-<img src="https://raw.githubusercontent.com/FrameParadorn/fvcli/main/logo.png" width="100px"/>
+<p align="center">
+    <img src="https://raw.githubusercontent.com/FrameParadorn/fvcli/main/logo.png" width="100px" style="margin: 0 auto"/>
+<p/>
+<p align="center">
+    fvcli
+<p/>
+<p align="center">
+    A gopher cli tool generate base on clean archtecture
+<p/>
 
-A gopher cli tool generate base on clean archtecture
+<br>
 
 # Description
 
