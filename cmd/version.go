@@ -6,10 +6,14 @@ import (
 	"github.com/spf13/cobra"
 )
 
+func getVersion() string {
+	return "version v0.0.1"
+}
+
 var versionCmd = &cobra.Command{
 	Use:   "version",
 	Short: "Print the version number of fvcli",
-	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("version v0.0.1")
+	Run: func(_ *cobra.Command, _ []string) {
+		fmt.Println(getVersion())
 	},
 }
