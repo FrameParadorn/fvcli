@@ -52,5 +52,5 @@ jobs:
       if: steps.verify-changed-files.outputs.files_changed == 'true'
       uses: ad-m/github-push-action@master
       with:
-        github_token: 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
+        github_token: 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
         branch: ${{ github.head_ref }}
