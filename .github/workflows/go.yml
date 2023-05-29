@@ -34,14 +34,8 @@ jobs:
       with:
         filename: coverage.out
       
-    - name: Update coverage report
-      uses: ncruces/go-coverage-report@v0.1.7
+    - name: Verify Changed files
+      uses: tj-actions/verify-changed-files@v12
+      id: verify-changed-files
       with:
-        report: 'true'
-        chart: 'true'
-        amend: 'false'
-      if: |
-        matrix.os == 'ubuntu-latest' &&
-        github.event_name == 'push'  
-      continue-on-error: true
-
+        files: README.md
