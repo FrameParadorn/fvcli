@@ -1,4 +1,5 @@
 <p align="center">
+![Coverage](https://img.shields.io/badge/Coverage-50.0%25-yellow)
     <img src="https://raw.githubusercontent.com/FrameParadorn/fvcli/main/logo.png" width="100px" style="margin: 0 auto"/>
 <p/>
 <p align="center">
