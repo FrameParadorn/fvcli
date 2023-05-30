@@ -12,7 +12,8 @@ func (*New) CreateCommand() *cobra.Command {
 	return &cobra.Command{
 		Use:   "new",
 		Short: "New project",
-		Run: func(cmd *cobra.Command, args []string) {
+		RunE: func(cmd *cobra.Command, args []string) error {
+			return nil
 		},
 	}
 }
