@@ -16,8 +16,8 @@ type Configuration struct {
 	DbHost     string `env:"DB_HOST"     envDefault:"127.0.0.1"`
 	DbPort     string `env:"DB_PORT"     envDefault:"5432"`
 	DbUser     string `env:"DB_USER"     envDefault:"postgres"`
-	DbName     string `env:"DB_NAME"     envDefault:"common"`
-	DbPassword string `env:"DB_PASSWORD" envDefault:"q:,};+(ahY)^Z$>R"`
+	DbName     string `env:"DB_NAME"     envDefault:"user"`
+	DbPassword string `env:"DB_PASSWORD" envDefault:""`
 
 	JaegerAgentHost string `env:"JAEGER_HOST" envDefault:"localhost"`
 	JaegerAgentPort string `env:"JAEGER_PORT" envDefault:"6831"`
