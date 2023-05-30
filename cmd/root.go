@@ -6,6 +6,8 @@ import (
 	"os"
 
 	"github.com/spf13/cobra"
+
+	"github.com/FrameParadorn/fvcli/cmd/new"
 )
 
 // rootCmd represents the base command when called without any subcommands
@@ -27,4 +29,8 @@ func init() {
 
 	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 	rootCmd.AddCommand(versionCmd)
+
+	newCommand := new.NewNew()
+	rootCmd.AddCommand(newCommand.CreateCommand())
+
 }
