@@ -1,0 +1,110 @@
+syntax = "proto3";
+
+package common.service.v1;
+import "google/api/annotations.proto";
+import "protocGenSwagger/options/annotations.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+
+option go_package = "/.;api_v1";
+
+option (grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger) = {
+  info: {
+    title: "Common Service"
+    version: "1.0"
+    contact: {
+      name: "user"
+      url: "http://localhost:3021"
+      email: "tech@robowealth.co.th"
+    }
+  }
+  schemes: HTTP
+  consumes: "application/json"
+  produces: "application/json"
+  responses: {
+    key: "404"
+    value: {
+      description: "Returned when the resource does not exist."
+      schema: {
+        json_schema: {
+          type: STRING
+        }
+      }
+    }
+  }
+};
+
+message GetRemoteConfigAllRequest {
+  repeated string key = 1;
+}
+
+message GetRemoteConfigAllResponse {
+  map<string, string> configs = 1;
+}
+
+message ForceUpdate {
+  int64 id = 1;
+  string platform = 2;
+  string targetVersions = 3;
+	string status = 4;
+  string links = 5;
+	string message = 6;
+}
+
+message GetActiveForceUpdateListRequest {
+  string platform = 1;
+}
+
+message GetActiveForceUpdateListResponse {
+  repeated ForceUpdate list = 1;
+}
+
+message Maintenance {
+  int64 id = 1;
+  string platform = 2;
+  string targetVersions = 3;
+	string status = 4;
+  string links = 5;
+	string message = 6;
+  int64 effectiveDateStart = 7;
+  int64 effectiveDateEnd = 8;
+}
+
+message GetActiveMaintenanceListRequest {
+  string platform = 1;
+}
+
+message GetActiveMaintenanceListResponse {
+  repeated Maintenance list = 1;
+}
+
+message GetSplashPageResponse {
+  string splash_image = 1;
+  string splash_type = 2;
+  string splash_data = 3;
+  google.protobuf.BoolValue is_international = 4;
+  string fund_code = 5;
+}
+
+service RemoteConfigService {
+  rpc GetRemoteConfigAll(GetRemoteConfigAllRequest) returns (GetRemoteConfigAllResponse) {
+    option (google.api.http) = {
+      get: "/common-service/api/v1/remote-config"
+    };
+  }
+  rpc GetActiveForceUpdateList(GetActiveForceUpdateListRequest) returns (GetActiveForceUpdateListResponse) {
+    option (google.api.http) = {
+      get: "/common-service/api/v1/force-updates/{platform}"
+    };
+  }
+  rpc GetActiveMaintenanceList(GetActiveMaintenanceListRequest) returns (GetActiveMaintenanceListResponse) {
+    option (google.api.http) = {
+      get: "/common-service/api/v1/maintenance/{platform}"
+    };
+  }
+  rpc GetSplashPage(google.protobuf.Empty) returns (GetSplashPageResponse) {
+    option (google.api.http) = {
+      get: "/common-service/api/v1/splash-page"
+    };
+  }
+}
